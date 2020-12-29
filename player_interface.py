@@ -1,3 +1,9 @@
+"""
+Name:   battle_ships.py
+Description:    File represents the whole battleships game
+Creator:    Igal Bibliv
+Last Modification:  29/12/2020 - Created
+"""
 import consts
 from requests import TurnRequest
 
