@@ -1,3 +1,9 @@
+"""
+Name:   request_serializer.py
+Description:    File contains all the request serializers
+Creator:    Igal Bibliv
+Last Modification:  29/12/2020 - Created
+"""
 import requests
 from consts import PROTOCOL_VERSION, RequestID, SHIPS_NUM
 
