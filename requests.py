@@ -76,17 +76,6 @@ class PlacementInfoRequest(IRequest):
     """
     def __init__(self, request_type, locations, tilts, nonce):
         super().__init__(request_type)
-
-        self.longest_ship_loc = locations[ShipIndexes.LONGEST_SHIP]
-        self.big_ship_loc = locations[ShipIndexes.BIG_SHIP]
-        self.first_short_ship_loc = locations[ShipIndexes.FIRST_SHORT_SHIP]
-        self.second_short_ship_loc = locations[ShipIndexes.SECOND_SHORT_SHIP]
-        self.shortest_ship_loc = locations[ShipIndexes.SHORTEST_SHIP]
-
-        self.longest_ship_tilt = tilts[ShipIndexes.LONGEST_SHIP]
-        self.big_ship_tilt = tilts[ShipIndexes.BIG_SHIP]
-        self.first_short_ship_tilt = tilts[ShipIndexes.FIRST_SHORT_SHIP]
-        self.second_short_ship_tilt = tilts[ShipIndexes.SECOND_SHORT_SHIP]
-        self.shortest_ship_tilt = tilts[ShipIndexes.SHORTEST_SHIP]
-
+        self.locations = locations
+        self.tilts = tilts
         self.nonce = nonce

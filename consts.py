@@ -1,6 +1,7 @@
 PROTOCOL_VERSION = 1
 
 TABLE_SIZE = 10
+SHIPS_NUM = 5
 
 
 class RequestID:
