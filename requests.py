@@ -10,11 +10,11 @@ class ShipIndexes:
     """
     The ship indexes in the PlacementInfoRequest
     """
-    LONGEST_SHIP = 0  # length: 5
-    BIG_SHIP = 1  # length: 4
-    FIRST_SHORT_SHIP = 2  # length: 3
-    SECOND_SHORT_SHIP = 3  # length: 3
-    SHORTEST_SHIP = 4  # length: 2
+    LONGEST_SHIP = 0        # length: 5
+    BIG_SHIP = 1            # length: 4
+    FIRST_SHORT_SHIP = 2    # length: 3
+    SECOND_SHORT_SHIP = 3   # length: 3
+    SHORTEST_SHIP = 4       # length: 2
 
 
 class IRequest:
