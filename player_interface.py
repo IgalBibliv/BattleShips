@@ -34,4 +34,4 @@ class PlayerInterface:
             print("Invalid Input!")
             row = input("Enter your wanted row: ")
             column = input("Enter your wanted column: ")
-        return TurnRequest(consts.RequestID.TURN_REQUEST, int(row) * consts.TABLE_SIZE + int(column))
+        return TurnRequest(consts.RequestID.TURN, int(row) * consts.TABLE_SIZE + int(column))

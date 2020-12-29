@@ -7,6 +7,6 @@ class RequestID:
     GAME_INVITE = 1
     GAME_ACCEPT = 2
     PLACING_INFORM = 3
-    TURN_REQUEST = 4
+    TURN = 4
     TURN_RESULT = 5
     PLACEMENT_INFORM = 6
