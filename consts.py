@@ -1,9 +1,16 @@
+"""
+Name:   consts.py
+Description:    All the global consts of the project
+Creator:    Igal Bibliv
+Last Modification:  29/12/2020 - Created
+"""
 PROTOCOL_VERSION = 1
 
 TABLE_SIZE = 10
 SHIPS_NUM = 5
 
 HASH_SIZE = 32
+
 
 class RequestID:
     GAME_INVITE = 1
