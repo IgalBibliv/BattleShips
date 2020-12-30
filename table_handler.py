@@ -42,6 +42,7 @@ class TableHandler:
         print_table(self.my_table)
         print("Enemy table: ")
         print_table(self.enemy_table)
+        print("\n\n")
 
     def handle_attack(self, turn_request):
         """
@@ -62,7 +63,6 @@ class TableHandler:
         """
         Function handles the ship result request
         """
-        print(f"{turn_result.is_hit} {turn_result.ship_sank}")
         if turn_result.is_hit:
             self.enemy_table[attack_cord] = TableSymbols.HIT
             if turn_result.ship_sank != 0:

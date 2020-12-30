@@ -78,9 +78,7 @@ class Communicator:
         :return: The other player's request
         """
         prot_version = self.sock.recv(1)[0]
-        print(prot_version)
         if prot_version != PROTOCOL_VERSION:
-            print("\n\nGOT NOTHING\n\n")
             return
         request_type = self.sock.recv(1)[0]
         return self.REQUEST_RECEIVERS[request_type](self)
