@@ -7,6 +7,8 @@ Last Modification:  30/12/2020 - edited
 import communicator
 import player_interface
 import table_handler
+import requests
+import consts
 
 
 class BattleShips:
@@ -15,6 +17,14 @@ class BattleShips:
         self.interface = interface
         self.tables = tables
         self.is_playing = is_playing
+
+    def initialize_game(self):
+        if self.is_playing:
+            self.game_communicator.recv_msg()
+            self.game_communicator.send_msg(requests.GameAcceptRequest(consts.RequestID.GAME_ACCEPT))
+        else:
+            self.game_communicator.send_msg(requests.GameAcceptRequest(consts.RequestID.GAME_INVITE))
+            self.game_communicator.recv_msg()
 
     def get_attacked(self):
         """

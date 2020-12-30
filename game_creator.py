@@ -2,13 +2,14 @@ import battle_ships
 import communicator
 import player_interface
 import table_handler
-import ship
 import socket
 import consts
-import requests
 
 
 def start_listening():
+    """
+    Function starts listening to an enemy connection
+    """
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(1000)
     sock.bind((consts.MY_IP, consts.GAME_PORT))
@@ -18,6 +19,9 @@ def start_listening():
 
 
 def bind_to_other_player():
+    """
+    Function connects to the enemy player
+    """
     target_ip = input("Enter the other player's ip: ")
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((target_ip, consts.GAME_PORT))
@@ -25,6 +29,10 @@ def bind_to_other_player():
 
 
 def create_utils():
+    """
+    Function creates and returns the table_handler and player interface for the game
+    :return: The table_handler and player interface
+    """
     interface = player_interface.PlayerInterface()
     player_ships = interface.get_player_ships()
     player_table = create_table_from_ships(player_ships)
@@ -62,12 +70,12 @@ def game_runner():
         player_game = create_hosting_player()
     else:
         player_game = create_connecting_player()
-    return player_game
+    player_game.initialize_game()
+    player_game.play()
 
 
 def main():
-    player_game = game_runner()
-    player_game.play()
+    game_runner()
 
 
 if __name__ == '__main__':
