@@ -35,3 +35,12 @@ class Ship:
         :return: True if it sank, else False
         """
         return self.hits >= self.get_len()
+
+    def get_tilt(self):
+        """
+        Function returns the tilt of the ship
+        :return: 0 if horizontal, 1 if vertical
+        """
+        if self.ship_cords[1] - self.ship_cords[0] == 1:
+            return 0
+        return 1

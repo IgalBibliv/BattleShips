@@ -40,7 +40,7 @@ class TableHandler:
         """
         print("My table: ")
         print_table(self.my_table)
-        print("enemy table: ")
+        print("Enemy table: ")
         print_table(self.enemy_table)
 
     def handle_attack(self, turn_request):
