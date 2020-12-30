@@ -5,6 +5,7 @@ Creator:    Igal Bibliv
 Last Modification:  30/12/2020 - Created
 """
 from consts import TABLE_SIZE
+import requests
 
 
 def create_empty_table():
@@ -38,3 +39,6 @@ class TableHandler:
         print_table(self.my_table)
         print("enemy table: ")
         print_table(self.enemy_table)
+
+    def handle_attack(self, turn_request):
+        pass
