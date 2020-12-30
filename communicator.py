@@ -77,7 +77,9 @@ class Communicator:
         Function receives a request from the other player and returns it
         :return: The other player's request
         """
+        prot_version = self.sock.recv(1024)
         prot_version = self.sock.recv(1)
+        print(prot_version)
         if prot_version != PROTOCOL_VERSION:
             return
         request_type = self.sock.recv(1)

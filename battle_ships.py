@@ -20,6 +20,7 @@ class BattleShips:
         """
         Function handles an enemy player's attack
         """
+        print("\nGetting attacked!\n")
         enemy_request = self.game_communicator.recv_msg()
         attack_result = self.tables.handle_attack(enemy_request)
         self.game_communicator.send_msg(attack_result)
@@ -28,6 +29,7 @@ class BattleShips:
         """
         Function handles the current player's attack
         """
+        print("\nAttacking!\n")
         attack_request = self.interface.get_players_wanted_attack()
         self.game_communicator.send_msg(attack_request)
         result = self.game_communicator.recv_msg()

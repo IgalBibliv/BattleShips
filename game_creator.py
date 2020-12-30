@@ -9,6 +9,7 @@ import consts
 
 def start_listening():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.settimeout(1000)
     sock.bind((consts.MY_IP, consts.GAME_PORT))
     sock.listen()
     conn, addr = sock.accept()
@@ -40,7 +41,6 @@ def create_table_from_ships(ships):
 
 def create_connecting_player():
     sock = bind_to_other_player()
-    print("Connected to target")
     player_communicator = communicator.Communicator(sock)
     interface, players_table_handler = create_utils()
     player_game = battle_ships.BattleShips(player_communicator, interface, players_table_handler, False)
@@ -49,7 +49,6 @@ def create_connecting_player():
 
 def create_hosting_player():
     sock = start_listening()
-    print("Connected")
     player_communicator = communicator.Communicator(sock)
     interface, players_table_handler = create_utils()
     player_game = battle_ships.BattleShips(player_communicator, interface, players_table_handler, True)
@@ -66,7 +65,8 @@ def game_runner():
 
 
 def main():
-    game_runner()
+    player_game = game_runner()
+    player_game.play()
 
 
 if __name__ == '__main__':

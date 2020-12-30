@@ -39,7 +39,7 @@ def serialize_turn_request(turn_request):
     :param turn_request: The TurnRequest class
     :return: A byte array of a turn request
     """
-    return bytes([PROTOCOL_VERSION, turn_request.request_type]) + turn_request.attacked_tile
+    return bytes([PROTOCOL_VERSION, turn_request.request_type]) + bytes([turn_request.attacked_tile])
 
 
 def serialize_turn_result_request(turn_result_request):
