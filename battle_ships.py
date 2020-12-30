@@ -31,11 +31,3 @@ class BattleShips:
         self.game_communicator.send_msg(attack_request)
         result = self.game_communicator.recv_msg()
         self.tables.handle_result(attack_request.attacked_tile, result)
-
-
-def main():
-    pass
-
-
-if __name__ == '__main__':
-    main()
