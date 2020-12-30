@@ -32,6 +32,7 @@ class TableHandler:
         self.my_ships = my_ships
         self.my_table = my_table
         self.enemy_table = create_empty_table()
+        self.ships_sank = 0
 
     def print_tables(self):
         """
@@ -58,5 +59,14 @@ class TableHandler:
         return requests.TurnResultRequest(RequestID.TURN_RESULT, is_hit, ship_sank)
 
     def handle_result(self, attack_cord, turn_result):
-        pass
+        """
+        Function handles the ship result request
+        """
+        if turn_result.is_hit:
+            self.enemy_table[attack_cord] = TableSymbols.HIT
+            if turn_result.ship_sank:
+                self.enemy_table[attack_cord] = TableSymbols.SANK
+                self.ships_sank += 1
+        else:
+            self.enemy_table[attack_cord] = TableSymbols.NONE
 
