@@ -5,6 +5,7 @@ import table_handler
 import ship
 import socket
 import consts
+import requests
 
 
 def start_listening():
@@ -13,7 +14,7 @@ def start_listening():
     sock.bind((consts.MY_IP, consts.GAME_PORT))
     sock.listen()
     conn, addr = sock.accept()
-    return sock
+    return conn
 
 
 def bind_to_other_player():

@@ -62,9 +62,10 @@ class TableHandler:
         """
         Function handles the ship result request
         """
+        print(f"{turn_result.is_hit} {turn_result.ship_sank}")
         if turn_result.is_hit:
             self.enemy_table[attack_cord] = TableSymbols.HIT
-            if turn_result.ship_sank:
+            if turn_result.ship_sank != 0:
                 self.enemy_table[attack_cord] = TableSymbols.SANK
                 self.ships_sank += 1
         else:

@@ -37,6 +37,7 @@ class BattleShips:
 
     def play(self):
         while True:
+            self.tables.print_tables()
             if self.is_playing:
                 self.attack()
             else:

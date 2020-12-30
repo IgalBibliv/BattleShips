@@ -40,7 +40,7 @@ class Communicator:
         Function receives a turn request from the other player and returns it
         :return: A turn request
         """
-        attacked_tile = self.sock.recv(1)
+        attacked_tile = self.sock.recv(1)[0]
         return requests.TurnRequest(RequestID.TURN, attacked_tile)
 
     def recv_turn_result_request(self):
@@ -48,8 +48,8 @@ class Communicator:
         Function receives a turn result request from the other player and returns it
         :return: A turn result request
         """
-        is_hit = bool(self.sock.recv(1))
-        ship_sank = self.sock.recv(1)
+        is_hit = bool(self.sock.recv(1)[0])
+        ship_sank = self.sock.recv(1)[0]
         return requests.TurnResultRequest(RequestID.TURN_RESULT, is_hit, ship_sank)
 
     def recv_placement_inform_request(self):
@@ -77,13 +77,13 @@ class Communicator:
         Function receives a request from the other player and returns it
         :return: The other player's request
         """
-        prot_version = self.sock.recv(1024)
-        prot_version = self.sock.recv(1)
+        prot_version = self.sock.recv(1)[0]
         print(prot_version)
         if prot_version != PROTOCOL_VERSION:
+            print("\n\nGOT NOTHING\n\n")
             return
-        request_type = self.sock.recv(1)
-        return self.REQUEST_RECEIVERS[request_type]()
+        request_type = self.sock.recv(1)[0]
+        return self.REQUEST_RECEIVERS[request_type](self)
 
     def send_msg(self, curr_request):
         """
