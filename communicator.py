@@ -11,3 +11,6 @@ import request_serializer
 class Communicator:
     def __init__(self, sock):
         self.sock = sock
+
+    def send_msg(self, request):
+        pass
