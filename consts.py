@@ -25,3 +25,5 @@ class TableSymbols:
     HIT = "X"
     EMPTY = "."
     SHIP = "S"
+    SANK = "#"
+    NONE = "N"
