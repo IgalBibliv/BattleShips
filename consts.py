@@ -3,6 +3,7 @@ PROTOCOL_VERSION = 1
 TABLE_SIZE = 10
 SHIPS_NUM = 5
 
+HASH_SIZE = 32
 
 class RequestID:
     GAME_INVITE = 1
