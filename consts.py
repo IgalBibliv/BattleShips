@@ -19,3 +19,9 @@ class RequestID:
     TURN = 4
     TURN_RESULT = 5
     PLACEMENT_INFORM = 6
+
+
+class TableSymbols:
+    HIT = "X"
+    EMPTY = "."
+    SHIP = "S"
