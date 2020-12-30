@@ -12,6 +12,9 @@ import consts
 
 
 class BattleShips:
+    """
+    Class represents the game
+    """
     def __init__(self, game_communicator, interface, tables, is_playing):
         self.game_communicator = game_communicator
         self.interface = interface
@@ -19,6 +22,9 @@ class BattleShips:
         self.is_playing = is_playing
 
     def initialize_game(self):
+        """
+        Function sends or receives the first connection messages
+        """
         if self.is_playing:
             self.game_communicator.recv_msg()
             self.game_communicator.send_msg(requests.GameAcceptRequest(consts.RequestID.GAME_ACCEPT))
@@ -46,6 +52,9 @@ class BattleShips:
         self.tables.handle_result(attack_request.attacked_tile, result)
 
     def play(self):
+        """
+        Function lets the players play the game
+        """
         while True:
             self.tables.print_tables()
             if self.is_playing:

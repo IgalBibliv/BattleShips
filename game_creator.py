@@ -1,3 +1,9 @@
+"""
+Name:   game_creator.py
+Description:    The functions that initialize the game and let the player to start playing
+Creator:    Igal Bibliv
+Last Modification:  30/12/2020 - Created
+"""
 import battle_ships
 import communicator
 import player_interface
@@ -41,6 +47,11 @@ def create_utils():
 
 
 def create_table_from_ships(ships):
+    """
+    Function creates the game table for the table, from the ships
+    :param ships: The player's chosen ships
+    :return: The new configured table
+    """
     new_table = [consts.TableSymbols.NONE] * pow(consts.TABLE_SIZE, 2)
     for curr_ship in ships:
         for cord in curr_ship.ship_cords:
@@ -49,6 +60,10 @@ def create_table_from_ships(ships):
 
 
 def create_connecting_player():
+    """
+    Function creates a player via connecting to a listening one
+    :return: The BattleShips class of the player
+    """
     sock = bind_to_other_player()
     player_communicator = communicator.Communicator(sock)
     interface, players_table_handler = create_utils()
@@ -57,6 +72,10 @@ def create_connecting_player():
 
 
 def create_hosting_player():
+    """
+    Function creates a player via listening to a connection
+    :return: The BattleShips class of the player
+    """
     sock = start_listening()
     player_communicator = communicator.Communicator(sock)
     interface, players_table_handler = create_utils()
@@ -65,6 +84,9 @@ def create_hosting_player():
 
 
 def game_runner():
+    """
+    Function creates a BattleShips class by the player's choices and starts playing
+    """
     choice = input("Press 1 to host a game and 2 to connect to a game: ")
     if choice == "1":
         player_game = create_hosting_player()
