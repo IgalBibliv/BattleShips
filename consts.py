@@ -5,10 +5,12 @@ Creator:    Igal Bibliv
 Last Modification:  29/12/2020 - Created
 """
 PROTOCOL_VERSION = 1
+GAME_PORT = 8300
+SECOND_GAME_PORT = 8301
+MY_IP = "127.0.0.1"
 
 TABLE_SIZE = 10
 SHIPS_NUM = 5
-
 HASH_SIZE = 32
 
 
